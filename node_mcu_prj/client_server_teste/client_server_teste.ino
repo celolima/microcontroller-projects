@@ -3,7 +3,7 @@
 const char* ssid = "DEUS";
 const char* password = "filo2017";
  
-int ledPin = 14; // GPIO16
+int ledPin = 14; // GPIO14 - D5
 WiFiServer server(80);
  
 void setup() {
@@ -72,7 +72,7 @@ void clientConnection(WiFiClient client) {
   client.println(""); //  do not forget this one
   client.println("<!DOCTYPE HTML>");
   client.println("<html>");
-  client.println("<head><style>*{ font-family: arial; } .on {color:green;} .off {color:red;}</style></head>");
+  client.println("<head><style>*{ font-family: arial; } .on {color:blue;} .off {color:red;}</style></head>");
   client.println("<body>");
  
   client.print("Led pin is now: ");
