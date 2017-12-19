@@ -2,7 +2,7 @@
 
 #define DHTPIN A0 // pino que estamos conectado
 #define DHTTYPE DHT11 // DHT 11
-#define LED_PIN 14
+#define LED_PIN 13
 
 // Conecte pino 1 do sensor (esquerda) ao +5V
 // Conecte pino 2 do sensor ao pino de dados definido em seu Arduino
@@ -40,13 +40,13 @@ void loop()
     Serial.println(" *C");
   }
   blinkLed();
-  delay(3000);
+  delay(500);
 }
 
 void blinkLed() {
   digitalWrite(LED_PIN, HIGH);
-  delay(1000);
+  delay(500);
   digitalWrite(LED_PIN, LOW);
-  delay(1000);
+  delay(500);
 }
 
