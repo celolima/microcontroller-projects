@@ -49,3 +49,23 @@ Para utilizar um pino é necessário configurar três registradores: TRISx, LATx
     **Para realizar sucessivas leituras e escritas de um pino em um pequeno intervalo de tempo, é recomendado utilizar o registrador LAT.**
 
     **O nível lógico alto em um pino é defino pela tensão de alimentação do microcontrolador**
+
+
+# Aula 03    
+
+## Pinos de entrada
+    Toda vez que é realizado o RESET ou POWER ON do microcontrolador os pinos digitais são setados como entrada e permanecem com alta impedância. 
+    Após o reset do microntrolador, os pinos que possuem o recurso ADC vem configurados como entrada ANALÓGICA.
+
+## Configuração I/O digital e analógica
+    Necessário configurar o pino para digital via ANSEL ou ADCON1(mais antigo). 0 para digital e 1 para analógico.
+    Um pino configurado como analógico pode ser reconfigurado para operar como digital.
+
+## Resistores de pull-up
+    Ou resistores de **fraca polarização**. Chaveou-se para a entrada no pino, habilita-se por default um resistor pull-up. Sendo possível ligar ou desligar o resistor pull-up interno via *WPUx* (em geral apenas presente em algumas portas).
+    O resistor pull-up será habilitado somente quando o pino for configurado como entrada digital.
+    Os pull-ups serão desabilitados automaticamente quando o TRIS for configurado como saída ou ADC for configurado via ANSEL/ADCON1. Sendo que neste caso o registrador WPU, que habilita e desabilita o resistor pull-up, não será alterado, reestabelecendo seu antigo valor quando o pino assumir entrada digital.
+
+# Aula 04
+
+## Projetos
