@@ -68,4 +68,9 @@ Para utilizar um pino é necessário configurar três registradores: TRISx, LATx
 
 # Aula 04
 
-## Projetos
+## Projetos utilizando PIC18F45k22
+###Toggle LED ao pressionar o botão
+
+# Aula 05
+## Projetos utilizando PIC18F45k22
+###Pisca Led com controle

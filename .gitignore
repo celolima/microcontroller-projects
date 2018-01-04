@@ -8,3 +8,21 @@
 *.so
 
 *.png
+
+# MikroC Pro Projects files #
+###################
+*.asm
+*.bmk
+*.brk
+*.cfg
+*.cp
+*.dbg
+*.dct
+*.user.dic
+*.dlt
+*.lst
+*.mcl
+*.log
+*.mcppi_callertable.txt
+*.mcppi
+*.c.ini
