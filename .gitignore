@@ -23,6 +23,6 @@
 *.lst
 *.mcl
 *.log
-*.mcppi_callertable.txt
+*_callertable.txt
 *.mcppi
 *.c.ini
