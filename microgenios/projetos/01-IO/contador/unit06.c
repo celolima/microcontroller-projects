@@ -17,11 +17,11 @@ void main() {
   unsigned char flagAux = 0;
 
   // Diretivas de pré-compilação
-  #ifdef P18F45K22
+  #ifdef P1C8F45K22
     ANSELB = 0; // Conf. todos os pinos PORTB como digital
-    ANSELD = 0; // Conf. todos os pinos PORTB como digital
+    ANSELD = 0; // Conf. todos os pinos PORTD como digital
   #else
-    ADCON1 |= 0X0F // Config. todos os pinos ADC como digital Ex: 18F4520
+    ADCON1 |= 0X0F; // Config. todos os pinos ADC como digital Ex: 18F4520
   #endif
 
   //TECLA
