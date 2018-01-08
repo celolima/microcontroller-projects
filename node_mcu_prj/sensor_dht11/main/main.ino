@@ -1,10 +1,10 @@
 #include "DHT.h"
 
-#define DHTPIN A0 // pino que estamos conectado
+#define DHTPIN 4 // pino que estamos conectado
 #define DHTTYPE DHT11 // DHT 11
 #define LED_PIN 13
 
-// Conecte pino 1 do sensor (esquerda) ao +5V
+// Conecte pino 1 do sensor (esquerda) ao +5V (3V no NodeMCU)
 // Conecte pino 2 do sensor ao pino de dados definido em seu Arduino
 // Conecte pino 4 do sensor ao GND
 // Conecte o resistor de 10K entre pin 2 (dados) 
