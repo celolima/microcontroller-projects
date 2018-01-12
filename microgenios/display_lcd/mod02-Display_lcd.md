@@ -1,7 +1,7 @@
 # Aula 01
 
 ## Modelos de display LCD
-    Composto de uma matriz de pixels, definada na memória CGROM. Envia uma informação no barramento de dados do display. Endereço -> mem. CGROM -> print.
+    Composto de uma matriz de pixels, definada na memória CGROM. Envia uma informação no barramento de dados do display. Endereço -> mem. CGRAM -> print.
     O barramento contém pinos de bits, configuração/controle (enable, rw,rs), alimentação(3.3v ou 5v) e contraste (via resistor).
     Além de vcc e gnd do backlight.
 
