@@ -21,11 +21,33 @@ void configMCU() {
 #endif
 }
 
-void main() {
+void shift(unsigned char direction) {
+    unsigned char ucX = 0;
+    while(ucX<16) {
+        Lcd_Cmd(direction);
+        Delay_ms(70);
+        ucX++;
+    }             
+}
+
+const char character[] = {10,0,14,17,17,17,14,0};
+
+void faceChar(char pos_row, char pos_char) {
+  char i;
+    Lcd_Cmd(64);
+    for (i = 0; i<=7; i++) Lcd_Chr_CP(character[i]);
+    Lcd_Cmd(_LCD_RETURN_HOME);
+    Lcd_Chr(pos_row, pos_char, 0);
+}
+
+void main() {    
     configMCU();
     Lcd_Init();
     Lcd_Cmd(_LCD_CLEAR);
     Lcd_Cmd(_LCD_CURSOR_OFF);
-    Lcd_Out(1,1,"FIRST  LINE");
-    Lcd_Out(2,1,"SECOND LINE");        
+    Lcd_Out(1,1,"MARCELO RIBEIRO DE");
+    Lcd_Out(2,1,"SOUSA LIMA");
+    shift(_LCD_SHIFT_RIGHT);
+    shift(_LCD_SHIFT_LEFT);
+    faceChar(2,12);     
 }

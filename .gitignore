@@ -26,4 +26,8 @@
 *_callertable.txt
 *.mcppi
 *.c.ini
+
+# Proteus Projects files #
+###################
 *.pdsbak
+*.workspace
