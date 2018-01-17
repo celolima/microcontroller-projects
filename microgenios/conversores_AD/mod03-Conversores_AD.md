@@ -38,3 +38,13 @@
     #### Lê o resultado
     #### Aguarda antes da próxima aquisição
     
+### Funcionamento da precisão
+    http://www.arnerobotics.com.br/eletronica/Medidas_Analogicas_w_PIC.htm 
+    Quanto maior o número de bits do conversor melhor é a precisão do mesmo. Um conversor de 8 bits possui uma precisão maior do que um de 10 bits.
+    O cômputo da resolução é dado por -> Vref(MAX) / (pow(2,n) - 1);  Onde n é número de bits.
+    
+    Ex: Para 8 bits e uma referência máxima de 5V -> 5 / 255 = 19,61mV
+        A variação é a cada 19,61mV
+
+    Ex: Para 10 bits e uma referência máxima de 5V -> 5 / 1023 = 4,89mV
+    A variação é a cada 4,89mV
