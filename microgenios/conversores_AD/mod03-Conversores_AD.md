@@ -52,25 +52,25 @@
 ### Registradores
     Existem três registradores responsáveis por trabalhar com conversor analógico para digital: ADCON0, ADCON1, ADCON2; Composto por 8 bits que devem ser configurados.
     Consultar o datasheet do microcontrolador. Ex PIC18F4520
-    
+
     *ADCON0* -> config quais canais analógicos serão utilizados/status da conversão
-    |bit7|bit6|bit5|bit4|bit3|bit2|bit1|bit0|
-    |-   |-   | ch | ch | ch | ch |go/done|Adon|
+    | bit7 | bit6 | bit5 | bit4 | bit3 | bit2 | bit1 | bit0 |
+    | -   | -   | ch | ch | ch | ch | go/done | Adon |
 
     Do bit2 ao bit5: seleção dos canais analógicos utilizados
     Do bit1: status de conversão A/D (responsável por dar start no conversor)
     Do bit0: ligando o conversor ADCON1
 
     *ADCON1* -> ajuste de tensão de referência/config pinos digitais e analógicos
-    |bit7|bit6|bit5|bit4|bit3|bit2|bit1|bit0|
-    |-   |-   | ref | ref | pin | pin |pin|pin|
+    | bit7 | bit6 | bit5 | bit4 | bit3 | bit2 | bit1 | bit0 |
+    | -   | -   | ref | ref | pin | pin | pin | pin |
 
     Do bit4 ao bit5: tensão de referência (interna ou externa)
     Do bit0 ao bit3: configuração de quais pinos serão digitais e quais analógicos
 
     *ADCON2* -> ajuste de frequência/tempo aquisição
-    |bit7|bit6|bit5|bit4|bit3|bit2|bit1|bit0|
-    |justifica   |-   | acqt | acqt | acqt | adcs |adcs|adcs|
+    | bit7 | bit6 | bit5 | bit4 | bit3 | bit2 | bit1 | bit0 |
+    | justifica | -   | acqt | acqt | acqt | adcs | adcs | adcs |
 
     Do bit7: result Format Select bit -> right or left justified
     Do bit3 ao bit5: configuração do tempo de aquisição TADs: 12tads
