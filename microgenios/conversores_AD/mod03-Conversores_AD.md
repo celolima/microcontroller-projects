@@ -83,3 +83,14 @@
         
         Logo têm-se: Leitura_ADC = ((ADRESH << 8) | ADRESL) -> formando uma palavra final de 16 bits.
     
+
+### Resumo
+    *Os registradores do ADC são: ADCON0, ADCON1, ADCON2, ANSELx, TRISx, ADRESH, ADRESL;*
+    - ADCON0: Seleciona o canal ADC, habilita o periférico ADC e realiza o start de conversão.
+    - ADCON1: Define a tensão de referência do conversor ADC(interna ou externa) e informa qual o pino do PIC será AD ou I/O digital. 
+        No caso do 18F45k22 esse registrador configura a tensão de referência apenas. Logo será necessário configurar via ANSELx.
+    - ADCON2: Define a justificativa do resultado da conversão, ajusta a frequência e tempo de conversão.
+    - ANSELx: Encontrado no 18F45k22 -> Defnine o pino como AD ou I/O digital.
+    - TRIsx: Necessário configurar o pino como entrada.
+    - ADRESH e ADRESL: Registrador que armazena o resultado da conversão.
+    - TAD: Tempo de conversão de cada bit.
