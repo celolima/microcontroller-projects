@@ -50,7 +50,7 @@
     T0CON Register - Responsável por configurar quase todo o TIMER0.
     TMRON:  Liga ou desliga (interrompe ou não os pulsos de entrada).
     T08BIT: Configura o modo 8 ou 16 bits.
-    T0CS:   Configura o modo de operação, ou como TIMER ou como CONTADOR.
+    T0CS:   Configura o modo de operação, ou como TIMER(0) ou como CONTADOR(1).
     T0SE:   Configuração de borda de subida ou descida do pulso.
     PSA:    Habilita ou desabilita o Prescaler. Sendo 0 habilita.
     T0PS2:  Configuração a razão ou rate do prescaler.
@@ -58,3 +58,5 @@
 ## OBSERVAÇÃO 
 > Sempre aconcelho meus alunos a aprendere bem a programar o TIMER0 e o TIMER1, pois o TIMER0 é padronizado (ou quase sempre) entre a família PIC16 e PIC18, enquanto o TIMER1 é idêntico comparado com o TIMER3 e 5, ou seja, aprendeu bem a programar o TIMER1, “valeu” também para o TIMER3 e 5.
 > O TIMER2 é mais usado compartilhado com outros periféricos, tal como o PWM.
+
+## ATENÇÃO AO LER/ESCREVER NOS REGISTRADORES DE CONTAGEM DOS TIMERS!
