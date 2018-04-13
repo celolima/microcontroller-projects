@@ -4,10 +4,10 @@
 #include <time.h>
 #include <stdlib.h>
 
-const char* ssid = "DEUS";
-const char* password = "filo2017";
-const char* mqtt_server = "test.mosquitto.org";
-const char* topic = "/device01/sensor04";
+const char* ssid = "PERICLES";
+const char* password = "12345678";
+const char* mqtt_server = "iot.eclipse.org";
+const char* topic = "/dev-15/tensão/0c27556f-a1b0-4d54-bcc2-255dc8f1b185";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -26,18 +26,18 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-
+  
   client.loop();
 
   long now = millis();
 
-  // A cada 2 segundos  
-
-  if (now - lastMsg > 2000) {
+  // A cada X segundos  
+  
+  if (now - lastMsg > 7000) {
     lastMsg = now;
     getAnalogVal();
     snprintf(msg, 75, "%f", getAnalogVal());
-    Serial.print("Publish message: ");
+    Serial.println("Publish message: ");
     Serial.print(msg);
     client.publish(topic, msg);
   }
@@ -89,7 +89,7 @@ void reconnect() {
       // Once connected, publish an announcement...
       client.publish(topic, "Im Alive!");
     } else {
-      Serial.print("failed, rc=");
+      Serial.print("failed, rc = ");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
       // Wait 5 seconds before retrying

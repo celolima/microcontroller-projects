@@ -1,6 +1,6 @@
 #include "DHT.h"
 
-#define DHTPIN 4 // pino que estamos conectado
+#define DHTPIN 15 // pino que estamos conectado
 #define DHTTYPE DHT11 // DHT 11
 #define LED_PIN 13
 
