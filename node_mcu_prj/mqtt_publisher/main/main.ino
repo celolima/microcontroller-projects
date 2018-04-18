@@ -35,6 +35,7 @@ const char* mqtt_server = "test.mosquitto.org";
 const char* topic = "/device01/sensor04";
 
 WiFiClient espClient;
+
 PubSubClient client(espClient);
 
 long lastMsg = 0;
