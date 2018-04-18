@@ -60,3 +60,14 @@
 > O TIMER2 é mais usado compartilhado com outros periféricos, tal como o PWM.
 
 ## ATENÇÃO AO LER/ESCREVER NOS REGISTRADORES DE CONTAGEM DOS TIMERS!
+> Registradores de contgaem, acumuladores 'TMR0L' e 'TMR0H' -> juntos formam uma palavra de 16 bits, tendo 8 bits cada.
+> No processo de leitura e no processo de escrita, lê-se do buffer 'High Byte'.
+### Situação problema: realizar a leitura enquanto os acumuladores estão em funcionamento
+> 1 - Leitura do TMR0L: 0b1111111
+> 2 - Leitura do TMRH:  0b0000000
+> No entanto de 1 para 2 ocorreu mais um pulso no TMR0L, ocasionando o overflow e mandando 1 para o TIMERH
+> Resultado: 0b00000001 0b11111111
+
+Logo, isso causa erro:
+TMR0L = 0xC7;
+TMR0H = 0xF2;
