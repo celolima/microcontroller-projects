@@ -9,7 +9,7 @@ int sensorValue;
 #define A 12 // D6
 #define B 13 // D7
 #define C 15 // D8
-#define MQ2 0 // D3
+#define MQ2 16 // SD2
 
 void setup()
 {
@@ -36,7 +36,7 @@ void loop()
   int valor_analogico = analogRead(A0);
   //delay(3000);
   // Mostra os dados no serial monitor
-  Serial.print("Pino D0 : ");
+  Serial.print("Pino Mq2 : ");
   Serial.print(valor_digital);
   Serial.print(" Pino A0 : ");
   Serial.println(valor_analogico);

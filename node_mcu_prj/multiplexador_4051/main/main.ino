@@ -6,6 +6,10 @@
 
 int sensorValue;
 
+unsigned long currentMillis = 0;
+long previousMillis = 0;        // Variável de controle do tempo
+long redLedInterval = 250;     // Tempo em ms do intervalo a ser executado
+
 #define A 12 // D6
 #define B 13 // D7
 #define C 15 // D8
@@ -35,15 +39,20 @@ void loop()
       digitalWrite(B,1);
       digitalWrite(C,1); // Bit mais significativo
     }
-    delay(300);
-    sensorValue=analogRead(A0);
-    delay(300);
+    currentMillis = millis();    //Tempo atual em ms
+    //Lógica de verificação do tempo
+    if (currentMillis - previousMillis > redLedInterval) {
+      previousMillis = currentMillis;    // Salva o tempo atual  
+      sensorValue=analogRead(A0);
+    }   
+    delay(5000);
     if(flag) {
       Serial.print("Analog 01: ");
     } else {
       Serial.print("Analog 02: ");  
     }    
-    Serial.println(sensorValue);
+    Serial.print(sensorValue);
+    Serial.print(" --------- Tensão: ");
     Serial.println(sensorValue * (3.3 / 1024));
     flag = !flag;
     //tone(PIEZO, sensorValue, sensorValue);
