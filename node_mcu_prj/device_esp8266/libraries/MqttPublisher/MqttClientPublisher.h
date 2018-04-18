@@ -14,8 +14,8 @@ class MqttClientPublisher
   public:
     MqttClientPublisher(char* server, int port, WiFiClient espClient);
     boolean publish(char* topic);
+    void connect();    
     boolean isConnected();
-    void connect();
   private:    
     void reconnect();
     Client _client;
