@@ -31,3 +31,6 @@
 ###################
 *.pdsbak
 *.workspace
+
+# dependencies
+/*/node_modules
