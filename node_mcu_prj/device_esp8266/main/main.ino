@@ -18,8 +18,8 @@ void setup() {
 
 void loop() {
 
-  if(isReady) {
-    
+  if(isReady()) {
+    Serial.println('Inicio da leitura!');
   }
 
   long now = millis();
