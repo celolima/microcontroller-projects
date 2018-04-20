@@ -10,24 +10,26 @@
 Conecta::Conecta(char* ssid, char* passwd) {
     _ssid = ssid;
     _passwd = passwd;
+    setupWifi();
 }
 
 void Conecta::setupWifi() {
-  // We start by connecting to a WiFi network
+  if(!isConnected()){
+    // We start by connecting to a WiFi network  
+    Serial.print("Connecting to: ");
+    Serial.println(_ssid);
 
-  Serial.print("Connecting to: ");
-  Serial.println(_ssid);
+    WiFi.begin(_ssid, password);
 
-  WiFi.begin(_ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println("");
+    Serial.print("WiFi connected -- ");
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
   }
-  Serial.println("");
-  Serial.print("WiFi connected -- ");
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
 }
 
 boolean Conecta::isConnected() {

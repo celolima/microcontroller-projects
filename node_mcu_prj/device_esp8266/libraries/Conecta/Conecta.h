@@ -15,8 +15,8 @@ class Conecta
     Conecta(char* ssid, char* passwd);
     boolean isConnected();
     WiFiClient getClient();
-  private:
     void setupWifi();
+  private:    
     char* _ssid;
     char* _passwd;    
 };
