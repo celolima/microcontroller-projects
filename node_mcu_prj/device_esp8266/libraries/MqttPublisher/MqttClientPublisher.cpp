@@ -1,12 +1,14 @@
 /*
-  MqttClientPublisher.h - Library to configure and publish on MQTT borker by ESP8266
+  MqttClientPublisher.h - Library to configure and publish on MQTT broker by ESP8266
   Created by Marcelo Lima, April 18, 2018.
 */
 
-#include <PubSubClient.h>
 #include "Arduino.h"
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include "MqttClientPublisher.h"
 
-MqttClientPublisher::MqttClientPublisher(char* server, int port, WiFiClient espClient) {
+MqttClientPublisher::MqttClientPublisher(const char* server, const int port, WiFiClient espClient) {
     PubSubClient client(espClient);
     client.setServer(server, port);
     _client = client;
@@ -47,5 +49,5 @@ boolean MqttClientPublisher::isConnected() {
 }
 
 boolean MqttClientPublisher::publish(char* topic, int value) {
-    _client.publish(topic, String(value));
+   _client.publish(topic, String(value).c_str());
 }

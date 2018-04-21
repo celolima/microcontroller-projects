@@ -12,13 +12,13 @@
 class Conecta
 {
   public:
-    Conecta(char* ssid, char* passwd);
+    Conecta(const char* ssid, const char* passwd);
     boolean isConnected();
     WiFiClient getClient();
     void setupWifi();
   private:    
-    char* _ssid;
-    char* _passwd;    
+    const char* _ssid;
+    const char* _passwd;    
 };
 
 #endif

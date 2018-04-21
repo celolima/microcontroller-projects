@@ -7,7 +7,7 @@
 #include "Arduino.h"
 #include "Conecta.h"
 
-Conecta::Conecta(char* ssid, char* passwd) {
+Conecta::Conecta(const char* ssid, const char* passwd) {
     _ssid = ssid;
     _passwd = passwd;
     setupWifi();
@@ -19,7 +19,7 @@ void Conecta::setupWifi() {
     Serial.print("Connecting to: ");
     Serial.println(_ssid);
 
-    WiFi.begin(_ssid, password);
+    WiFi.begin(_ssid, _passwd);
 
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
@@ -37,5 +37,5 @@ boolean Conecta::isConnected() {
 }
 
 WiFiClient Conecta::getClient() {
-    reutrn WiFiClient();
+    return WiFiClient();
 }

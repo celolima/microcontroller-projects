@@ -33,18 +33,19 @@
 #define MqttClientPublisher_h
 
 #include "Arduino.h"
-#include "MqttClientPublisher.h"
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
 
 class MqttClientPublisher
 {
   public:
-    MqttClientPublisher(char* server, int port, WiFiClient espClient);
+    MqttClientPublisher(const char* server, const int port, WiFiClient espClient);
     boolean publish(char* topic, int value);
     void connect();    
     boolean isConnected();
   private:    
     void reconnect();
-    Client _client;
+    PubSubClient _client;
 };
 
 #endif

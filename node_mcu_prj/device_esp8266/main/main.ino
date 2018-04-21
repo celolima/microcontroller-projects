@@ -1,12 +1,13 @@
-#include <Conecta.h>
 #include <MqttClientPublisher.h>
+#include <Conecta.h>
 
 const char* ssid = "DEUS";
 const char* password = "filo2017";
 const char* mqtt_server = "test.mosquitto.org";
 const int mqtt_port = 1883;
-const char* topic = "/device01/sensor04";
+char* topics[10] = {"/device01/sensor04","/device01/sensor05"};
 int counter = 0;
+long lastMsg = 0;
 
 Conecta conecta(ssid, password);
 MqttClientPublisher mqtt(mqtt_server, mqtt_port, conecta.getClient());
@@ -19,15 +20,17 @@ void setup() {
 void loop() {
 
   if(isReady()) {
-    Serial.println('Inicio da leitura!');
+    Serial.println("Inicio da leitura!");
   }
 
   long now = millis();
   if (now - lastMsg > 4000) {
     lastMsg = now;
-    mqtt.publish(topic, ++counter);
+    mqtt.publish(topics[0], ++counter);
   }
+
 }
+
 
 boolean isReady() {
   boolean isOk = true;
