@@ -29,10 +29,10 @@
 #include <time.h>
 #include <stdlib.h>
 
-const char* ssid = "DEUS";
-const char* password = "filo2017";
-const char* mqtt_server = "test.mosquitto.org";
-const char* topic = "/device01/sensor04";
+const char* ssid = "3Com";
+const char* password = "adminadmin";
+const char* mqtt_server = "iot.eclipse.org";
+const char* topic = "/dev-15/temperatura/0c27556f-a1b0-4d54-bcc2-255dc8f1b185";
 
 WiFiClient espClient;
 
