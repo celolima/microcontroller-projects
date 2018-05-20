@@ -4,8 +4,6 @@ int numberOfInterrupts = 0;
 
 unsigned long timeFirst = 0;
 unsigned long timeSecond = 0;
-unsigned long currentMillis = 0;
-unsigned long previousMillis = 0;
 
 unsigned long total = 0;
 double finalFreq = 0;
