@@ -1,7 +1,9 @@
 #include <ESP8266WiFi.h>
  
-const char* ssid = "DEUS";
-const char* password = "filo2017";
+//const char* ssid = "DEUS";
+//const char* password = "filo2017";
+#define SSID "NET_2GDB14C2"
+#define PASSWORD "4BDB14C2"
  
 int ledPin = 14; // GPIO16
 WiFiServer server(80);
@@ -17,9 +19,9 @@ void setup() {
   Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
-  Serial.println(ssid);
+  Serial.println(SSID);
  
-  WiFi.begin(ssid, password);
+  WiFi.begin(SSID, PASSWORD);
  
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);

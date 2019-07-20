@@ -1,4 +1,7 @@
-const byte interruptPin = 13;
+#define F1 15 // D8
+#define F2 5 // D1
+
+const byte interruptPin = 5;
 volatile byte interruptCounter = 0;
 int numberOfInterrupts = 0;
 
@@ -13,6 +16,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(interruptPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(interruptPin), handleInterrupt, FALLING);
+        Serial.print("TESTE");
 }
  
 void handleInterrupt() {     
@@ -25,12 +29,13 @@ void handleInterrupt() {
     finalFreq = (double)( (double)1/((double)total/(double)1000) );
     clk = 1;
     Serial.print("Frequência:\t");
-    Serial.println(finalFreq);
+    Serial.println(finalFreq/2);
   }
   interruptCounter++;
 }
  
 void loop() {      
+
   if(interruptCounter>0){
  
       interruptCounter--;

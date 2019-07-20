@@ -1,6 +1,6 @@
 #include "DHT.h"
 
-#define DHTPIN 15 // pino que estamos conectado
+#define DHTPIN 0 // pino que estamos conectado
 #define DHTTYPE DHT11 // DHT 11
 #define LED_PIN 13
 
@@ -13,7 +13,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("DHT11 test!");
   dht.begin();
   pinMode(LED_PIN,OUTPUT);

@@ -10,16 +10,17 @@ unsigned long currentMillis = 0;
 long previousMillis = 0;        // Variável de controle do tempo
 long redLedInterval = 250;     // Tempo em ms do intervalo a ser executado
 
-#define A 12 // D6
-#define B 13 // D7
-#define C 15 // D8
-#define PIEZO 14 // D5
+#define ANALOG_PORT A0
+#define A 4 // D2
+#define B 1 // D3
+#define C 2 // D4 - Bit mais significativo
 
 boolean flag = true;
 
 void setup()
 {
-    Serial.begin(9600);
+  Serial.begin(115200);
+    Serial.println("teste ");
 // seta os pinos select como saída
     pinMode(A,OUTPUT);
     pinMode(B,OUTPUT);
@@ -28,11 +29,14 @@ void setup()
 
 void loop()
 {
+     delay(5000);
+     Serial.println("teste ");
+  /*
     if(flag) {
-      // 100
+      // 000
       digitalWrite(A,0);
       digitalWrite(B,0);
-      digitalWrite(C,1); // Bit mais significativo
+      digitalWrite(C,0); // Bit mais significativo
     } else {
       // 110
       digitalWrite(A,0);
@@ -43,7 +47,7 @@ void loop()
     //Lógica de verificação do tempo
     if (currentMillis - previousMillis > redLedInterval) {
       previousMillis = currentMillis;    // Salva o tempo atual  
-      sensorValue=analogRead(A0);
+      sensorValue=analogRead(ANALOG_PORT);
     }   
     delay(5000);
     if(flag) {
@@ -54,6 +58,6 @@ void loop()
     Serial.print(sensorValue);
     Serial.print(" --------- Tensão: ");
     Serial.println(sensorValue * (3.3 / 1024));
-    flag = !flag;
-    //tone(PIEZO, sensorValue, sensorValue);
+    //flag = !flag;
+    */
 }
