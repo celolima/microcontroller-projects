@@ -5,10 +5,12 @@
 #include <FastLED.h>
 
 #define LED_PIN     5
-#define NUM_LEDS    10
+#define NUM_LEDS    4
 #define BRIGHTNESS  64
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
+#define BUTTON_PIN 0
+
 CRGB leds[NUM_LEDS];
 
 #define UPDATES_PER_SECOND 100
@@ -40,7 +42,9 @@ extern const TProgmemPalette16 myRedWhiteBluePalette_p PROGMEM;
 
 
 void setup() {
-    delay( 3000 ); // power-up safety delay
+    Serial.begin(115200);
+    delay(3000); // power-up safety delay
+    pinMode(BUTTON_PIN, INPUT_PULLUP);
     FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
     FastLED.setBrightness(  BRIGHTNESS );
     
@@ -85,21 +89,23 @@ void ChangePalettePeriodically()
 {
     uint8_t secondHand = (millis() / 1000) % 60;
     static uint8_t lastSecond = 99;
-    
+    SetupTotallyRandomPalette();             currentBlending = LINEARBLEND;    
+    /*
     if( lastSecond != secondHand) {
         lastSecond = secondHand;
-        if( secondHand ==  0)  { currentPalette = RainbowColors_p;         currentBlending = LINEARBLEND; }
-        if( secondHand == 10)  { currentPalette = RainbowStripeColors_p;   currentBlending = NOBLEND;  }
-        if( secondHand == 15)  { currentPalette = RainbowStripeColors_p;   currentBlending = LINEARBLEND; }
-        if( secondHand == 20)  { SetupPurpleAndGreenPalette();             currentBlending = LINEARBLEND; }
-        if( secondHand == 25)  { SetupTotallyRandomPalette();              currentBlending = LINEARBLEND; }
-        if( secondHand == 30)  { SetupBlackAndWhiteStripedPalette();       currentBlending = NOBLEND; }
-        if( secondHand == 35)  { SetupBlackAndWhiteStripedPalette();       currentBlending = LINEARBLEND; }
-        if( secondHand == 40)  { currentPalette = CloudColors_p;           currentBlending = LINEARBLEND; }
-        if( secondHand == 45)  { currentPalette = PartyColors_p;           currentBlending = LINEARBLEND; }
-        if( secondHand == 50)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = NOBLEND;  }
-        if( secondHand == 55)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = LINEARBLEND; }
+        if( secondHand ==  0)  { currentPalette = RainbowColors_p;         currentBlending = LINEARBLEND; Serial.println("RainbowColors_p :: LINEARBLEND"); }
+        if( secondHand == 10)  { currentPalette = RainbowStripeColors_p;   currentBlending = NOBLEND;  Serial.println("RainbowStripeColors_p :: NOBLEND"); }
+        if( secondHand == 15)  { currentPalette = RainbowStripeColors_p;   currentBlending = LINEARBLEND; Serial.println("RainbowStripeColors_p :: LINEARBLEND"); }
+        if( secondHand == 20)  { SetupPurpleAndGreenPalette();             currentBlending = LINEARBLEND; Serial.println("SetupPurpleAndGreenPalette() :: LINEARBLEND"); }
+        if( secondHand == 25)  { SetupTotallyRandomPalette();              currentBlending = LINEARBLEND; Serial.println("SetupTotallyRandomPalette() :: LINEARBLEND"); }
+        if( secondHand == 30)  { SetupBlackAndWhiteStripedPalette();       currentBlending = NOBLEND; Serial.println("SetupBlackAndWhiteStripedPalette() :: NOBLEND"); }
+        if( secondHand == 35)  { SetupBlackAndWhiteStripedPalette();       currentBlending = LINEARBLEND; Serial.println("SetupBlackAndWhiteStripedPalette() :: LINEARBLEND"); }
+        if( secondHand == 40)  { currentPalette = CloudColors_p;           currentBlending = LINEARBLEND; Serial.println("CloudColors_p :: LINEARBLEND"); }
+        if( secondHand == 45)  { currentPalette = PartyColors_p;           currentBlending = LINEARBLEND; Serial.println("PartyColors_p :: LINEARBLEND"); }
+        if( secondHand == 50)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = NOBLEND;  Serial.println("myRedWhiteBluePalette_p :: NOBLEND"); }
+        if( secondHand == 55)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = LINEARBLEND; Serial.println("myRedWhiteBluePalette_p :: LINEARBLEND"); }
     }
+    */
 }
 
 // This function fills the palette with totally random colors.
@@ -161,6 +167,7 @@ const TProgmemPalette16 myRedWhiteBluePalette_p PROGMEM =
     CRGB::Red,
     CRGB::Gray,
     CRGB::Gray,
+    
     CRGB::Blue,
     CRGB::Blue,
     CRGB::Black,
