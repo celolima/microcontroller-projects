@@ -33,7 +33,7 @@ void setup() {
 }
 
 void loop(){
-  choosePalette();
+  //choosePalette();
   updateLeds();
   FastLED.show();
   FastLED.delay(3000);
@@ -77,9 +77,12 @@ void updateLeds() {
       leds[i] = ColorFromPalette( currentPalette, 0);
     }
   } else {
-    */
+    */     
+     String a = "f5dd12";
+     int number = (int)strtol(a.c_str(), NULL, 16);
     for( int i = 0; i < NUM_LEDS; i++) {
-      leds[i] = ColorFromPalette(currentPalette, colorIndex, BRIGHTNESS, LINEARBLEND);
+      leds[i] = number;
+      //leds[i] = ColorFromPalette(currentPalette, colorIndex, BRIGHTNESS, LINEARBLEND);
       colorIndex += 3;
     }
   //}
